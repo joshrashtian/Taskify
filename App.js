@@ -1,14 +1,12 @@
 
 import { KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Task from './components/Task';
+import Header from './components/Header'
 import React, {useState} from 'react';
 import { useFonts } from 'expo-font';
 
 export default function App() {
 {/* Set Up Some Simples */}
-  const [fontsLoaded] = useFonts({
-    'Cheese-Burger': require('./assets/fonts/CheeseBurger.otf')
-  });
 
   const [task, setTask] = useState();
   const [taskItems, setTaskItems] = useState([]);
@@ -27,9 +25,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       {/* Today's Tasks */}
-      <View style={styles.headingtext}>
-        <Text style={styles.sectionTitle}>Taskify</Text>
         <View style={styles.items}>
+        <Header />
           {/* Where Tasks Will Go */}
           {
             taskItems.map((item, index) => {
@@ -41,7 +38,6 @@ export default function App() {
             })
           }
         </View>
-      </View>
 
 
   <KeyboardAvoidingView behavior ={Platform.OS === "ios" ? "padding" : "height"} style = {styles.writeTaskWrapper}>
@@ -61,19 +57,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#D3D3D3',
-  },
-  headingtext: {
-    paddingTop: 80,
-    paddingLeft: 20,
-    paddingRight: 20,
-    flex: 3,
-    backgroundColor: '#EFEFEF',
-  },
-  sectionTitle: {
-    color: '#55BCF6',
-    fontSize: 50,
-    fontWeight: 'bold',
-    fontFamily: 'Cheese-Burger',
   },
   items: {
     marginTop: 30,
