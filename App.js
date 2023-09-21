@@ -1,9 +1,7 @@
-
 import { KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Task from './components/Task';
 import Header from './components/Header'
 import React, {useState} from 'react';
-import { useFonts } from 'expo-font';
 
 export default function App() {
 {/* Set Up Some Simples */}
@@ -25,8 +23,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       {/* Today's Tasks */}
+      <Header />
         <View style={styles.items}>
-        <Header />
           {/* Where Tasks Will Go */}
           {
             taskItems.map((item, index) => {
@@ -56,10 +54,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#D3D3D3',
+    backgroundColor: '#EFEFEF',
   },
   items: {
-    marginTop: 30,
+    marginTop: 10,
+    paddingTop: 5,
+    paddingHorizontal: 20,
   },
 writeTaskWrapper: {
   position: 'absolute', 
@@ -74,7 +74,7 @@ input: {
   backgroundColor: '#FFF',
   borderRadius: 60,
   borderColor: '#E3E3E3',
-  borderWidth: 0.5,
+  borderWidth: 0.4,
   width: '75%',
   marginLeft: 5,
 },
@@ -89,6 +89,10 @@ addButton: {
 },
 addText: {
   fontSize: 30,
+  fontWeight: 'bold',
+  textShadowColor: '#000',
+  textShadowRadius: 1,
+  color: '#FFF',
 },
 
 });

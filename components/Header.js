@@ -1,34 +1,33 @@
 import React from "react";
-import {View, Text, StyleSheet} from 'react=native';
-
-
-const [fontsLoaded] = useFonts({
-    'Cheese-Burger': require('./assets/fonts/CheeseBurger.otf')
-  });
-
+import { View, Text, StyleSheet } from 'react-native';
 
 export default function Header() {
     return (
-<View style={styles.headingtext}>
-<Text style={styles.sectionTitle}>Taskify</Text>
+<View style={styles.sectionTitle}>
+    <Text style={styles.headingtext}>Taskify</Text>
 </View>
-
     )
 }
 
 const styles = StyleSheet.create({
-    headingtext: {
-        paddingTop: 80,
-        paddingLeft: 20,
-        paddingRight: 20,
-        flex: 3,
-        backgroundColor: '#EFEFEF',
+    sectionTitle: {
+        height: 100,
+        backgroundColor: '#1ecbe1',
+        paddingTop: 25,
+        borderBottomLeftRadius: 40,
+        borderBottomRightRadius: 40,
+        borderBottomColor: '#479cb8',
+        borderBottomWidth: 3,
+        borderCurve: 'continuous',
+        justifyContent: 'space-around',
       },
-      sectionTitle: {
+      headingtext: {
         textAlign: 'center',
-        color: '#55BCF6',
-        fontSize: 50,
+        color: '#FFF',
+        fontSize: 40,
         fontWeight: '400',
-        fontFamily: 'Cheese-Burger',
-      },
-})
+        fontStyle: 'italic',
+        textShadowColor: '#000',
+        textShadowRadius: 1,
+      }
+    })
